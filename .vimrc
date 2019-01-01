@@ -12,6 +12,13 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
 Plug 'rbong/vim-flog'
+Plug 'jiangmiao/auto-pairs'
+
+Plug 'tyru/open-browser.vim'
+Plug 'aklt/plantuml-syntax'
+Plug 'weirongxu/plantuml-previewer.vim'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -20,6 +27,12 @@ call plug#end()
 " (Coc) use <tab> to trigger completion and navigate to the next complete item
 inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
 inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
+
+" confgure luau highlighting
+augroup useLuauSyntax
+    autocmd!
+    autocmd FileType lua set filetype=luau
+augroup END
 
 let mapleader =","
 filetype off
@@ -65,8 +78,7 @@ let g:user_emmet_leader_key=','
 	nnoremap S :%s//g<Left><Left>
 
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
-	vnoremap <C-c> "+y
-	map <C-p> "+P
+    vnoremap <C-c> :w !xclip -i -sel c<Enter><Enter>
 "Newtab with ctrl+t
 	nnoremap <silent> <C-t> :tabnew<CR>
 "Paste from system clipboard with ctrl+i instead of shift insert
@@ -85,4 +97,5 @@ let g:user_emmet_leader_key=','
 	inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
 	vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
 	map <leader><leader> <Esc>/<++><Enter>"_c4l
+
 
