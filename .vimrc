@@ -3,20 +3,23 @@ set nocompatible
 " necessary to get voundle running
 " set the runtime path to include vundle and initialize
 " set rtp +=~/.vim/Vundle.vim
-set rtp+=~/.vim/Vundle.vim
-call vundle#begin()
-
-" let vundle manage vundle, before all other plugins
-Plugin 'VundleVim/Vundle.vim'
 
 "let plugins go down here
-" keep plugin commands between vundle begin/end
-Plugin 'preservim/nerdtree'
-Plugin 'tpope/vim-fugitive'
-Plugin 'dense-analysis/ale'
-"All plugins must be added before following line
-call vundle#end() " required
-filetype plugin indent on " required
+" keep plugin commands between plug begin/end
+" vim-plug plugins
+call plug#begin('~/.vim/bundle')
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'dense-analysis/ale'
+Plug 'rbong/vim-flog'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+
+" (Coc) use <tab> to trigger completion and navigate to the next complete item
+inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
+inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
 
 let mapleader =","
 filetype off
@@ -82,3 +85,4 @@ let g:user_emmet_leader_key=','
 	inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
 	vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
 	map <leader><leader> <Esc>/<++><Enter>"_c4l
+
