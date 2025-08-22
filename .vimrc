@@ -9,19 +9,16 @@ set nocompatible
 " vim-plug plugins
 call plug#begin('~/.vim/bundle')
 Plug 'preservim/nerdtree'
-Plug 'tpope/vim-fugitive'
-Plug 'dense-analysis/ale'
-Plug 'rbong/vim-flog'
 Plug 'jiangmiao/auto-pairs'
 
-Plug 'tyru/open-browser.vim'
-Plug 'aklt/plantuml-syntax'
-Plug 'weirongxu/plantuml-previewer.vim'
+Plug 'rbong/vim-flog'
+Plug 'tpope/vim-fugitive'
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'gleam-lang/gleam.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'https://github.com/wolandark/vim-live-server.git'
 call plug#end()
 
 " (Coc) use <tab> to trigger completion and navigate to the next complete item
@@ -37,7 +34,6 @@ augroup END
 let mapleader =","
 filetype off
 
-set go=a
 set mouse=a
 set nohlsearch
 set clipboard=unnamedplus
@@ -98,4 +94,14 @@ let g:user_emmet_leader_key=','
 	vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
 	map <leader><leader> <Esc>/<++><Enter>"_c4l
 
+if has('nvim-0.4.3') || has('patch-8.2.0750')
+          nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+          nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+          inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+          inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+endif
 
+"autocmd BufRead,BufNewFile *.gobo set filetype=gobo
+"autocmd BufRead,BufNewFile *.gs set filetype=gobo
+
+colorscheme vim

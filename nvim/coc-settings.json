@@ -1,0 +1,40 @@
+{
+  "languageserver": {
+    "gleam": {
+      "command": "gleam",
+      "args": ["lsp"],
+      "filetypes": ["gleam"],
+      "trace.server": "verbose"
+    },
+    "goboscript": {
+        "command": "python",
+        "args": ["-m", "goboscript_lsp"],
+        "filetypes": ["gobo", "gs"]
+    },
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "initializationOptions": {
+         "cache": {
+           "directory": "/tmp/ccls"
+         }
+       }
+    }
+  },
+  "pyright.inlayHints.functionReturnTypes": false,
+  "pyright.inlayHints.variableTypes": false,
+  "pyright.inlayHints.parameterTypes": false,
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/18.1.3/clangd_18.1.3/bin/clangd",
+  "java.imports.gradle.wrapper.checksums": [
+    {
+      "sha256": "d3b261c2820e9e3d8d639ed084900f11f4a86050a8f83342ade7b6bc9b0d2bdd",
+      "allowed": true
+    }
+  ],
+  "java.inlayHints.parameterNames.enabled": "none",
+  "inlayHint.enable": false,
+  "files.associations": {
+      "*.inc": "html"
+  }
+}
