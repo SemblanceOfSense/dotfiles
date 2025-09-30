@@ -104,4 +104,9 @@ endif
 "autocmd BufRead,BufNewFile *.gobo set filetype=gobo
 "autocmd BufRead,BufNewFile *.gs set filetype=gobo
 
-colorscheme vim
+colorscheme sorbet
+highlight Normal guibg=none
+highlight NonText guibg=none
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+
